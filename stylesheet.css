@@ -8,10 +8,32 @@
     src: url(assets/CafeBrewery.ttf);
 }
 
+@font-face {
+    font-family: Dosis;
+    src: url(assets/Dosis-Book.ttf);
+}
+
 body, html {
     height: 100%;
     margin: 0;
     overflow-x: hidden;
+}
+
+#main_body {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 11;
+    opacity: 0%;
+    pointer-events: none;
+    background-color: #221f1f71;
+    backdrop-filter: blur(2px);
+    transition: all ease-in-out 0.25s;
+}
+
+main {
+    height: auto;
+    min-height: 100vh;
 }
 
 .bg {
@@ -29,19 +51,26 @@ body, html {
 header {
     position: fixed;
     width: 100%;
-    height: 100px;
+    height: 120px;
     background-color: rgba(50, 44, 43, 0.2);
-    z-index: 1;
+    z-index: 10;
     box-shadow: 0px 0px 10px black;
+    transition: all ease-in-out 0.25s;
+    transform: translateY(35%);
+}
+
+header.active {
+    background-color: rgb(50, 44, 43);
+    transform: translateY(0%);
 }
 
 #img_cont {
-    width: 90px;
-    height: 90px;
+    width: 85px;
+    height: 85px;
 }
 
 #img_cont img{
-    max-width: 1020%;
+    max-width: 100%;
     max-height: 100%;
 }
 
@@ -50,14 +79,14 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 650px;
+    width: 800px;
     height: 100%;
     height: fit-content;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #ddd4c9;
-    font-family: CafeBrewery;
+    font-family: CakeCafe;
     font-size: 18pt;
     
 }
@@ -68,6 +97,7 @@ header {
     gap: 8px;
     flex-direction: column;
     cursor: pointer;
+    transition: all ease-in-out 0.25s;
 }
 
 #nav a .ul {
@@ -87,6 +117,10 @@ header {
     width: 5px;
     height: 5px;
     opacity: 100%;
+}
+
+#nav a:active {
+    transform: translateY(+10%);
 }
 
 #page_home {
@@ -118,7 +152,7 @@ header {
 
 #tagline h2 {
     width: 50%;
-    font-family: CafeBrewery;
+    font-family: Dosis;
     font-size: 52pt;
     font-weight: 200;
     color: #e7ddd0;
@@ -136,7 +170,7 @@ header {
     background-color: #221f1f;
     border-radius: 30px;
     border: none;
-    font-family: CafeBrewery;
+    font-family: Dosis;
     font-size: 20pt;
     color: #e7ddd0;
     transition: all ease-in-out 0.25s;
@@ -173,9 +207,445 @@ header {
     transform: translateY(-5px);
 }
 
+#page_about {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    background: rgb(221,212,201);
+    background: linear-gradient(180deg, rgba(221,212,201,1) 0%, rgb(210, 180, 145) 100%);
+    box-shadow: 0px 0px 30px black;
+    overflow: hidden;
+    z-index: 2;
+}
+
+#about {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+#about h1{
+    font-family: CakeCafe;
+    font-size: 48pt;
+    font-weight: 200;
+    color: #221f1f;
+    text-align: center;
+    margin: 0;
+}
+
+#about #sep {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #221f1f;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#about p {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    font-family: Dosis;
+    font-size: 15pt;
+    line-height: 2;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#about_border1 {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: -40%;
+    transition: all ease-in-out 0.5s;
+}
+
+#about_border1.active {
+    left: -10%;
+    animation: about_border1_anim ease-in-out 1.5s;
+}
+
+#about_border2{
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    right: -40%;
+    transition: all ease-in-out 0.5s;
+}
+
+#about_border2.active {
+    right: -10%;
+    animation: about_border2_anim ease-in-out 1.5s;
+}
+
+#about_bg1{
+    position: absolute;
+    max-height: 300px;
+    left: 65%;
+    bottom: -50%;
+    rotate: 15deg;
+    transition: all ease-in-out 0.5s;
+}
+
+#about_bg1.active {
+    bottom: -20%;
+}
+
+#about_bg2{
+    position: absolute;
+    max-height: 300px;
+    left: 55%;
+    bottom: -55%;
+    rotate: -20deg;
+    transition: all ease-in-out 0.5s;
+}
+
+#about_bg2.active {
+    bottom: -25%;
+    transition-delay: 100ms;
+}
+
 #page_menu {
+    position: relative;
     width: 100vw;
-    height: 100vh;
-    background-color: #ddd4c9;
+    height: auto;
+    min-height: 100vh;
+    background-image: url('assets/bg_2.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+#menu {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    backdrop-filter: blur(10px);
+}
+
+#menu h1 {
+    font-family: CakeCafe;
+    font-size: 48pt;
+    font-weight: 200;
+    color: #fffbf5;
+    text-shadow: 0px 0px 10px #221f1f;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 40px;
+    width: 100%;
+    padding-top: 12%;
+}
+
+.ctgry {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.menu_ctgry {
+    max-height: 320px;
+    z-index: 1;
+    transition: all ease-in-out 0.25s;
+}
+
+.menu_ctgry:hover {
+    transform: translateY(-5%);
+}
+
+.menu_ctgry:active {
+    transform: translateY(+5%);
+}
+
+#menu_tab {
+    position: fixed;
+    top: 50%;
+    left: 150%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: auto;
+    min-height: 95vh;
+    background-color: #e7ddd0;
+    z-index: 15;
     box-shadow: 0px 0px 10px black;
+    transition: all ease-in-out 0.5s;
+}
+
+#menu_tab.active {
+    left: 50%;
+}
+
+#menu_info {
+    position: relative;
+    width: inherit;
+    height: 80vh;
+    display: flex;
+}
+
+#menu_img {
+    width: 100%;
+    height: 100%;
+    background-image: url(assets/menu_bev1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    z-index: -1;
+}
+
+#menu_desc {
+    height: inherit;
+    width: 100%;
+    background: rgb(228,197,158);
+    background: linear-gradient(180deg, rgba(228,197,158,1) 0%, rgba(215,169,111,1) 100%);
+}
+
+#menu_exit {
+    position: fixed;
+    right: 0;
+    margin: 16px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50px;
+    background-color: #683331;
+    z-index: 5;
+}
+
+#menu_exit::after {
+    position: absolute;
+    content: "";
+    width: 75px;
+    height: 75px;
+    border-radius: 50px;
+    background-color: #803D3B;
+    background-image: url(assets/exit.png);
+    background-position: center;
+    background-size: 35%;
+    background-repeat: no-repeat;
+    transform: translateY(-5px);
+    z-index: 6;
+    transition: all ease-in-out 0.25s;
+}
+
+#menu_exit:hover::after {
+    transform: translateY(-10px);
+}
+
+#menu_exit:active::after {
+    transform: translateY(-2px);
+}
+
+#desc_cont {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 40px;
+}
+
+#desc_cont h1 {
+    font-family: CakeCafe;
+    font-size: 30pt;
+}
+
+#desc_cont h2 {
+    font-family: Dosis;
+    font-weight: 200;
+    font-size: 24pt;
+}
+
+#desc_cont p {
+    font-family: Dosis;
+    width: 90%;
+    line-height: 2;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#menu_list {
+    bottom: -5px;
+    position: absolute;
+    width: inherit;
+    height: 20vh;
+    background-color: #322C2B;
+    
+}
+
+#list_cont {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+}
+
+#menu_list .img {
+    width: 100px;
+    height: 100px;
+    background-color: #564130;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+
+#menu_list .img .front {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: #7f6149;
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    border-radius: 20px;
+    transform: translateY(-8px);
+    box-shadow: inset -1px -2px #c5b5b4;
+    transition: all ease-in-out 0.25s;
+}
+
+#menu_list .img:hover .front {
+    transform: translateY(-12px);
+}
+
+#menu_list .img:active .front {
+    transform: translateY(-3px);
+}
+
+#page_music {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    background-color: #803D3B;
+    box-shadow: 0px 0px 30px black;
+    overflow: hidden;
+    z-index: 2;
+}
+
+#music {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    padding-top: 10%;
+}
+
+#music h1 {
+    font-family: CakeCafe;
+    font-size: 48pt;
+    font-weight: 200;
+    color: #fffbf5;
+    text-shadow: 0px 0px 10px #432423;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#music p {
+    font-family: Dosis;
+    font-size: 16pt;
+    color: #fffbf5;
+    text-shadow: 0px 0px 10px #432423;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+#music_collection {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.song {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+}
+
+.song #album {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    box-shadow: 0px 0px 10px #432423;
+    transition: all ease-in-out 0.25s;
+}
+
+.song:hover #album {
+    width: 90%;
+    height: 90%;
+}
+
+@keyframes about_border1_anim {
+    0% {
+        left: -40%;
+    }
+    50% {
+        left: -8%;
+    }
+    75% {
+        left: -12%;
+    }
+    100% {
+        left: -10%;
+    }
+}
+
+@keyframes about_border2_anim {
+    0% {
+        right: -40%;
+    }
+    50% {
+        right: -8%;
+    }
+    75% {
+        right: -12%;
+    }
+    100% {
+        right: -10%;
+    }
+}
+
+@keyframes enter_anim {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%
+    }
+}
+
+@keyframes rotateCd {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
 }

@@ -5,24 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta author="Charles Andre Bandala">
     <link href="stylesheet.css" rel="stylesheet"/>
-    <title></title>
+    <link href="assets/logo_1.png" rel="icon">
+    <title>Hipno-Kape</title>
 </head>
 <body>
-    <header>
-        <div id="nav">
-            <a>Home
-                <div class="ul"></div>
-            </a>
-            <a>Menu
-                <div class="ul"></div>
-            </a>
-            <div id="img_cont">
-                <img src="assets/logo_1.png">
+    <div id="menu_tab">
+        <div id="menu_exit" onclick="disableMenu()"></div>
+        <div id="menu_info">
+            <div id="menu_img"></div>
+            <div id="menu_desc">
+                <div id="desc_cont">
+                    <h1 id="food_name"></h1>
+                    <p id="food_desc"></p>
+                    <h2 id="food_price"></h2>
+                </div>
             </div>
-            <a>Music
+        </div>
+        <div id="menu_list">
+            <div id="list_cont"></div>
+        </div>
+    </div>
+    <div id="preloader"></div>
+    <div id="main_body"></div>
+    <header id="page_header">
+        <div id="nav">
+            <a onclick="ScrollToView(page_about[0])">About
                 <div class="ul"></div>
             </a>
-            <a>Jobs
+            <a onclick="ScrollToView(page_menu[0])">Menu
+                <div class="ul"></div>
+            </a>
+            <div id="img_cont" onclick="ScrollToView(page_home[0])">
+                <img src="assets/logo_1.png" >
+            </div>
+            <a onclick="ScrollToView(page_music[0])">Music
+                <div class="ul"></div>
+            </a>
+            <a onclick="ScrollToView(page_jobs[0])">Jobs
                 <div class="ul"></div>
             </a>
         </div>
@@ -33,18 +52,59 @@
             <div id="tagline">
                 <h2>Jumpstart your day with</h2>
                 <h1>Hipno-Kape!</h1>
-                <div class="button">
+                <div class="button" onclick="ScrollToView(page_menu[0])">
                     <span class="front">
-                        <p>"See the Menu"</p>
+                        <p>See the "Menu"</p>
                     </span>
                 </div>
             </div>
-            
         </section>
-        <section id="page_menu"></section>
-        <section id="page_music"></section>
+        <section id="page_about">
+            <div id="about">
+                <h1>- What is Hipno-Kape? -</h1>
+                <div id="sep"></div>
+                <p><b style="font-family: CakeCafe; font-size: 18pt;">Hipno-Kape</b> is your go-to spot for high-quality products and efficient photocopying services. Our name, derived from Filipino words meaning <b>"copy"</b> and <b>"coffee"</b>, reflects our mission to benefit students and workers alike.</p>
+                <p>Step into our cozy café and experience seamless productivity. Whether you're a student on a deadline or a professional prepping for a presentation, our blend of coffee and photocopying services ensures your needs are met with precision and care.</p>    
+                <p>Jumpstart your day with <b style="font-family: CakeCafe; font-size: 18pt;"> Hipno-Kape!</b></p>    
+            </div>
+            <img id="about_border1" src="assets/bg_about_frame1.png">
+            <img id="about_border2" src="assets/bg_about_frame2.png">
+            <img id="about_bg1" src="assets/bg_about1.png">
+            <img id="about_bg2" src="assets/bg_about2.png">
+        </section>
+        <section id="page_menu">
+            <div id="menu">
+                <h1>- Menu -</h1>
+                <div class="ctgry">
+                    <img class="menu_ctgry" src="assets/menu_cat1.png" onclick="activateMenu(bev_dict)">
+                    <img class="menu_ctgry" src="assets/menu_cat2.png" onclick="activateMenu(pastry_dict)">
+                    <img class="menu_ctgry" src="assets/menu_cat3.png" onclick="activateMenu(pasta_dict)">
+                    <img class="menu_ctgry" src="assets/menu_cat4.png" onclick="activateMenu(pizza_dict)">
+                </div>
+            </div>
+        </section>
+        <section id="page_music">
+            <div id="music">
+                <div id="music_collection">
+                    <div class="song">
+                        <img id="album" src="assets/music_1.jpg">
+                    </div>
+                    <div class="song">
+                        <img id="album" src="assets/music_2.jpeg">
+                    </div>
+                    <div class="song">
+                        <img id="album" src="assets/music_3.jpg">
+                    </div>
+                    <div class="song">
+                        <img id="album" src="assets/music_3.jpg">
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="page_job"></section>
     </main>
     <footer></footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>
