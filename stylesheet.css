@@ -19,6 +19,31 @@ body, html {
     overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #423c3a;
+    z-index: 999999;
+    border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #423c3a;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #221e1d; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #231f1e; 
+    border-radius: 10px;
+}
+
 #main_body {
     position: fixed;
     height: 100vh;
@@ -263,7 +288,8 @@ header.active {
 #about_border1 {
     position: absolute;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 140%;
+    min-height: 100%;
     bottom: 0;
     left: -40%;
     transition: all ease-in-out 0.5s;
@@ -277,7 +303,8 @@ header.active {
 #about_border2{
     position: absolute;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 140%;
+    min-height: 100%;
     bottom: 0;
     right: -40%;
     transition: all ease-in-out 0.5s;
@@ -355,7 +382,7 @@ header.active {
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
-    width: 80%;
+    width: 90%;
 }
 
 .menu_ctgry {
@@ -531,24 +558,47 @@ header.active {
 }
 
 #page_music {
-    position: relative;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     height: auto;
     min-height: 100vh;
-    background-color: #803D3B;
+    background: rgb(228,197,158);
+    background: linear-gradient(180deg, #803D3B 0%, #592524 100%);
     box-shadow: 0px 0px 30px black;
     overflow: hidden;
-    z-index: 2;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: 56px;
+}
+
+.overlay {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    background: rgb(228,197,158);
+    background: linear-gradient(180deg, #803D3B 0%, #592524 100%);
+    z-index: 1;
+    transition: all ease-in-out 0.35s;
+    backdrop-filter: blur(20px);
+}
+
+.video_bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    opacity: 0%;
+    transition: all ease-in-out 0.35s;
 }
 
 #music {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    padding-top: 10%;
+    z-index: 2;
 }
 
 #music h1 {
@@ -556,11 +606,11 @@ header.active {
     font-size: 48pt;
     font-weight: 200;
     color: #fffbf5;
-    text-shadow: 0px 0px 10px #432423;
     text-align: center;
     margin: 0;
     margin-bottom: 20px;
     width: 100%;
+    transition: all ease-in-out 0.35s;
 }
 
 #music p {
@@ -574,32 +624,191 @@ header.active {
 }
 
 #music_collection {
-    position: relative;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    width: inherit;
+    height: inherit;
+    gap: 20px;
 }
 
 .song {
     position: relative;
     width: 300px;
     height: 300px;
-    flex-shrink: 0;
 }
 
-.song #album {
+.song img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 90%;
+    height: 90%;
+    box-shadow: 0px 0px 10px #322C2B;
+    transition: all ease-in-out 0.35s;
+    border-radius: 20px;
+}
+
+.song:hover img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.song .music_type {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-    box-shadow: 0px 0px 10px #432423;
-    transition: all ease-in-out 0.25s;
-}
-
-.song:hover #album {
     width: 90%;
     height: 90%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-family: CakeCafe;
+    z-index: 5;
+    font-size: 18pt;
+    color: #fffbf5;
+    text-shadow: 0px 0px 10px #ddd4c9;
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+    background-color: #221e1d9a;
+    opacity: 0%;
+    transition: all ease-in-out 0.35s;
+    border-radius: 20px;
+}
+
+.song:hover .music_type {
+    width: 100%;
+    height: 100%;
+    opacity: 100%;
+    font-size: 22pt;
+    border: solid 5px #ddd4c9;
+    box-shadow: 0px 0px 10px #ddd4c9;
+}
+
+#page_jobs {
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    background-image: url('assets/bg_3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    overflow: hidden;
+    z-index: -1;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 172px;
+}
+
+#jobs h1 {
+    font-family: CakeCafe;
+    font-size: 48pt;
+    font-weight: 200;
+    color: #fffbf5;
+    text-shadow: 0px 0px 10px #221e1d;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+    padding-top: 172px;
+}
+
+#jobs p {
+    font-family: Dosis;
+    font-size: 16pt;
+    color: #fffbf5;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+#job_cont {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+#job {
+    width: 80vw;
+    height: 500px;
+    background-color: #ddd4c9;
+    border-radius: 20px;
+    border: solid 8px #7f6149;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0px 0px 30px 221e1d;
+    transition: all ease-in-out 0.35s;
+}
+
+#job:hover {
+    border: solid 8px #fffbf5;
+    box-shadow: 0px 0px 10px #fffbf5;
+}
+
+.job_img {
+    width: 50%;
+    height: auto;
+}
+
+.job_desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: auto;
+    margin-left: 40px;
+}
+
+#job_title {
+    font-family: CakeCafe;
+    font-size: 32pt;
+    font-weight: 200;
+    color: #221e1d;
+    text-align: left;
+}
+
+#job_about {
+    position: relative;
+    font-family: Dosis;
+    font-size: 14pt;
+    color: #221e1d;
+    text-align: left;
+    margin: 0;
+    width: 85%;
+    height: 300px;
+    overflow-y: scroll;
+    margin-top: 20px;
+    padding-right: 40px;
+    text-shadow: none;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #221e1d;
+    
+}
+
+footer p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12pt;
+    font-family: Dosis;
+    color: #fffbf5;
+    text-align: center;
+    margin: 0;
 }
 
 @keyframes about_border1_anim {
@@ -643,9 +852,230 @@ header.active {
 
 @keyframes rotateCd {
     from {
-        transform: rotateZ(0deg);
+        rotate: 0deg;
     }
     to {
-        transform: rotateZ(360deg);
+        rotate: 360deg;
+    }
+}
+
+@media only screen and (max-width: 1435px) {
+    #tagline h2 {
+        font-size: 40pt;
+    }
+
+    #tagline h1 {
+        font-size: 62pt;
+    }
+}
+
+@media only screen and (max-width: 1255px) {
+    #menu {
+        padding-bottom: 176px;
+    }
+
+    #page_music {
+        padding-bottom: 100px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #about h1 {
+        font-size: 36pt;
+    }
+
+    #about_border1.active{
+        left: -20%;
+    }
+
+    #about_border2.active{
+        right: -20%;
+    }
+
+    @keyframes about_border1_anim {
+        0% {
+            left: -40%;
+        }
+        50% {
+            left: -10%;
+        }
+        75% {
+            left: -30%;
+        }
+        100% {
+            left: -20%;
+        }
+    }
+    
+    @keyframes about_border2_anim {
+        0% {
+            right: -40%;
+        }
+        50% {
+            right: -10%;
+        }
+        75% {
+            right: -30%;
+        }
+        100% {
+            right: -20%;
+        }
+    }
+}
+
+@media only screen and (max-width: 1110px) {
+    #about h1 {
+        font-size: 32pt;
+    }
+
+    .bg {
+        background-size: cover;
+        
+    }
+    
+    #tagline h1, #tagline h2{
+        width: 80%;
+    }
+    
+}
+
+@media only screen and (max-width: 870px) {
+    #nav {
+        width: 600px;
+    }
+    
+    #about_border1.active{
+        left: -35%;
+    }
+
+    #about_border2.active{
+        right: -35%;
+    }
+
+    @keyframes about_border1_anim {
+        0% {
+            left: -60%;
+        }
+        50% {
+            left: -35%;
+        }
+        75% {
+            left: -40%;
+        }
+        100% {
+            left: -35%;
+        }
+    }
+    
+    @keyframes about_border2_anim {
+        0% {
+            right: -60%;
+        }
+        50% {
+            right: -35%;
+        }
+        75% {
+            right: -40%;
+        }
+        100% {
+            right: -35%;
+        }
+    }
+}
+
+@media only screen and (max-width: 785px) {
+    #about h1 {
+        font-size: 30pt;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .bg{
+        background-position: 30% 0%;
+    }
+    
+    #about h1 {
+        font-size: 24pt;
+    }
+
+    #about p {
+        font-size: 12pt;
+    }
+
+    #tagline h2 {
+        font-size: 32pt;
+    }
+
+    #tagline h1 {
+        font-size: 52pt;
+    }
+
+    #nav {
+        width: 400px;
+    }
+}
+
+
+@media only screen and (max-width: 520px) {
+    #tagline h2 {
+        width:100%;
+    }
+
+    #tagline h1 {
+        width: 100%;
+    }
+
+    #about_border1.active{
+        left: -45%;
+    }
+
+    #about_border2.active{
+        right: -45%;
+    }
+
+    @keyframes about_border1_anim {
+        0% {
+            left: -80%;
+        }
+        50% {
+            left: -30%;
+        }
+        75% {
+            left: -50%;
+        }
+        100% {
+            left: -45%;
+        }
+    }
+    
+    @keyframes about_border2_anim {
+        0% {
+            right: -80%;
+        }
+        50% {
+            right: -30%;
+        }
+        75% {
+            right: -50%;
+        }
+        100% {
+            right: -45%;
+        }
+    }
+}
+
+@media only screen and (max-width: 546px) {
+    #job_cont {
+        left: 6%;
+    }
+}
+
+@media only screen and (max-width: 435px) {
+    #tagline h2 {
+        font-size: 20pt;
+    }
+
+    #tagline h1 {
+        font-size: 48pt;
     }
 }

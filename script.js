@@ -259,5 +259,148 @@ function preload_image(dict) {
 menu_dict.forEach((el) => preload_image(el));
 
 function ScrollToView(div){
-    div.scrollIntoView({block:'center', behavior:'smooth'})
+    div.scrollIntoView({block:'start', behavior:'smooth'})
 }
+
+/* Music */
+let audio_1 = new Audio('assets/music/music_1.mp3');
+let audio_2 = new Audio('assets/music/music_2.mp3');
+let audio_3 = new Audio('assets/music/music_3.mp3');
+let audio_4 = new Audio('assets/music/music_4.mp3');
+
+const overlay = document.getElementsByClassName("overlay");
+const video = document.getElementsByClassName("video_bg");
+const h1_music = document.querySelectorAll("#music h1");
+
+let audio_list = [audio_1, audio_2, audio_3, audio_4];
+let start_time = [57, 30, 108, 85]
+
+function playMusic(audio) {
+    audio_list[audio].currentTime = start_time[audio];
+    audio_list[audio].play();
+    video[audio].style.opacity = "100%";
+    video[audio].currentTime = start_time[audio];
+    video[audio].play();
+    overlay[0].style.opacity = "50%";
+    overlay[0].style.background = "rgba(0, 0, 0, 1)";
+    header.style.opacity = "20%";
+    header.style.filter = "blur(2px)";
+    h1_music[0].style.textShadow = "0px 0px 20px #ddd4c9";
+}
+
+function stopMusic(audio) {
+    audio_list[audio].pause();
+    audio_list[audio].currentTime = start_time[audio];
+    overlay[0].style.opacity = "100%";
+    overlay[0].style.background = "#803D3B";
+    video[audio].pause();
+    video[audio].style.opacity = "0%";
+    header.style.opacity = "100%";
+    header.style.filter = "none";
+    h1_music[0].style.textShadow = "none";
+}
+
+/* Automate */
+
+let job_imgs = ["assets/jobs_1.jpg", "assets/jobs_2.jpg", "assets/jobs_3.jpg", "assets/jobs_4.jpeg"]
+let job_arr = ["Barista Team", "Culinary Team", "Front of the House", "Operations"];
+let job_descript = [{
+                    about: "As a Barista Team Member, you'll be responsible for crafting and serving a variety of coffee beverages to café standards, operating espresso machines and other equipment efficiently. Your role includes maintaining cleanliness and organization, providing exceptional customer service, collaborating with team members for smooth operations, following health and safety guidelines, assisting with inventory management, and ensuring a positive customer experience overall.", 
+                    quali: [
+                            "Previous barista or similar role experience preferred",
+                            "Knowledge of coffee brewing and espresso machine operation",
+                            "Strong communication and customer service skills",
+                            "Ability to work in a fast-paced environment and multitask effectively",
+                            "Attention to detail and passion for quality beverages",
+                            "Flexibility to work various shifts, including weekends and holidays",
+                            "Willingness to learn and adapt to café standards and procedures"
+                        ]
+                },
+                {
+                    about: "As a Culinary Team Member, your responsibilities include assisting in food preparation and cooking following recipes and standards, maintaining cleanliness and organization in the kitchen, adhering to food safety and hygiene protocols, collaborating with team members for efficient operations, creatively plating and garnishing dishes, managing inventory and supplies, following kitchen procedures and portion control guidelines, and contributing to a positive work environment and teamwork among kitchen staff.",
+                    quali: [
+                            "Bachelor of Arts degree in Culinary Arts or related field required",
+                            "Previous experience in a culinary role or similar kitchen environment preferred",
+                            "Knowledge of food preparation techniques, cooking methods, and kitchen equipment",
+                            "Ability to work in a fast-paced environment and handle multiple tasks effectively",
+                            "Attention to detail and adherence to food safety and sanitation standards",
+                            "Flexibility to work various shifts, including evenings, weekends, and holidays",
+                            "Strong communication skills and the ability to work well within a team",
+                            "Willingness to learn and adapt to kitchen procedures and standards"
+                    ]
+                },
+                {
+                    about: "As a Front of House Team Member, you will greet and welcome customers in a friendly and professional manner, take customer orders accurately and enter them into the system, serve food and beverages promptly to ensure customer satisfaction, maintain cleanliness and organization of the dining area and service stations, assist with cashier duties including handling payments and processing transactions, answer customer inquiries and provide information about menu items, collaborate with kitchen and bar staff to ensure timely service, and uphold restaurant policies, procedures, and quality standards.",
+                    quali: [
+                            "Previous experience in a customer service or hospitality role preferred",
+                            "Excellent communication and interpersonal skills",
+                            "Ability to work in a fast-paced environment and multitask effectively",
+                            "Friendly and outgoing personality with a customer-focused attitude",
+                            "Flexibility to work various shifts, including evenings, weekends, and holidays",
+                            "Attention to detail and a passion for delivering exceptional service",
+                            "Knowledge of POS systems and cash handling procedures is a plus",
+                            "Willingness to learn and adapt to restaurant operations and standards"
+                    ]
+                },
+                {
+                    about: "As an Operations Team Member, your role involves assisting in day-to-day operations, including opening and closing procedures, maintaining cleanliness and organization throughout the facility, managing inventory levels, supporting team members in various tasks, monitoring equipment functionality, implementing health and safety standards, handling customer inquiries and feedback, and collaborating with management to improve operational efficiency and customer experience.",
+                    quali: [
+                            "Bachelor's degree in Business Administration or related field required",
+                            "Previous experience in a similar operational role preferred",
+                            "Strong organizational and time management skills",
+                            "Ability to work independently and as part of a team",
+                            "Attention to detail and a proactive approach to problem-solving",
+                            "Flexibility to work various shifts, including evenings, weekends, and holidays",
+                            "Knowledge of health and safety regulations and procedures",
+                            "Proficiency in using basic office software and equipment",
+                            "Willingness to learn and adapt to operational procedures and standards"
+                    ]
+                }
+            ]
+
+const job_cont = document.getElementById("job_cont");
+
+function appedQuali(){
+    for(let i=0; i<job_descript.length; i++){
+        let job = document.createElement("div");
+        job.id = "job";
+        let job_img = document.createElement("div");
+        job_img.classList.add("job_img")
+        job_img.style.backgroundImage = "url(" + job_imgs[i] + ")";
+        job_img.style.backgroundSize = "cover";
+        job_img.style.backgroundRepeat = "no-repeat";
+        job_img.style.backgroundPosition = "center center";
+        let job_desc = document.createElement("div");
+        job_desc.classList.add("job_desc");
+        let job_title = document.createElement('div');
+        job_title.id = "job_title";
+        job_title.innerHTML = job_arr[i];
+        let job_about = document.createElement('div');
+        job_about.id="job_about";
+        job_about.innerHTML = "<b>About:</b>";
+        let about_info = document.createElement('div');
+        about_info.id = "about_info";
+        about_info.innerHTML = job_descript[i].about;
+        job_about.append(about_info);
+        let br = document.createElement('br');
+        job_about.append(br);
+        let quali_title = document.createElement("b");
+        quali_title.innerHTML = "Qualifications: ";
+        job_about.append(quali_title);
+        let list = document.createElement("ul");
+
+        for(let j = 0; j < job_descript[i].quali.length; j++){
+            let quali = document.createElement("li");
+            quali.innerHTML = job_descript[i].quali[j];
+            list.append(quali);
+        }
+        job_about.append(list);
+        job_title.append(job_about);
+        job_desc.append(job_title);
+        job.append(job_img);
+        job.append(job_desc);
+        job_cont.append(job);
+    }
+}
+
+appedQuali();

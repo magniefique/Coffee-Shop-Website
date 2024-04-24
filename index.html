@@ -84,26 +84,56 @@
             </div>
         </section>
         <section id="page_music">
+            <div class="overlay"></div>
+            <video muted class="video_bg">
+                <source src="assets/music_video1.mp4">
+            </video>
+            <video muted class="video_bg">
+                <source src="assets/music_video2.mp4">
+            </video>
+            <video muted class="video_bg">
+                <source src="assets/music_video3.mp4">
+            </video>
+            <video muted class="video_bg">
+                <source src="assets/music_video4.mp4">
+            </video>
             <div id="music">
+                <h1>- Music -</h1>
+                <p>Sit down, relax, and listen to a wide variety of music such as:</p>
                 <div id="music_collection">
-                    <div class="song">
-                        <img id="album" src="assets/music_1.jpg">
+                    <div class="song" >
+                        <div class="music_type">RnB/Soul Music</div>
+                        <img src="assets/music_1.jpg" onmouseenter="playMusic(0);" onmouseout="stopMusic(0);">
+                        
                     </div>
-                    <div class="song">
-                        <img id="album" src="assets/music_2.jpeg">
+                    <div class="song" >
+                        <img src="assets/music_2.jpeg" onmouseenter="playMusic(1);" onmouseout="stopMusic(1);">
+                        <div class="music_type">Orchestral Music</div>
                     </div>
-                    <div class="song">
-                        <img id="album" src="assets/music_3.jpg">
+                    <div class="song" >
+                        <img src="assets/music_3.jpg" onmouseenter="playMusic(2);" onmouseout="stopMusic(2);">
+                        <div class="music_type">BardCore Music</div>
                     </div>
-                    <div class="song">
-                        <img id="album" src="assets/music_3.jpg">
+                    <div class="song" >
+                        <img src="assets/music_4.jpg" onmouseenter="playMusic(3);" onmouseout="stopMusic(3);">
+                        <div class="music_type">Indie Pop Music</div>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="page_job"></section>
+        <section id="page_jobs">
+            <div id="jobs">
+                <h1>- Jobs -</h1>
+                <p>Sit down, relax, and listen to a wide variety of music such as:</p>
+                <div id="job_cont"></div>
+            </div>
+        </section>
+        <footer>
+            <p>928 P. Paredes St, Sampaloc, Manila, 1008 Metro Manila <br />
+            Sponsored by <a href="https://magniefique.github.io/RegisterAtEtherealCabin/">CABIN 262</a><br />
+            © Hipno-Kape 2024</p>
+        </footer>
     </main>
-    <footer></footer>
     
     <script src="script.js"></script>
 </body>
