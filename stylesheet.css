@@ -287,7 +287,6 @@ header.active {
 
 #about_border1 {
     position: absolute;
-    max-width: 100%;
     max-height: 140%;
     min-height: 100%;
     bottom: 0;
@@ -302,7 +301,6 @@ header.active {
 
 #about_border2{
     position: absolute;
-    max-width: 100%;
     max-height: 140%;
     min-height: 100%;
     bottom: 0;
@@ -809,6 +807,7 @@ footer p {
     color: #fffbf5;
     text-align: center;
     margin: 0;
+    line-height: 2;
 }
 
 @keyframes about_border1_anim {
@@ -936,20 +935,43 @@ footer p {
     #tagline h1, #tagline h2{
         width: 80%;
     }
+
+    #job_title {
+        font-size: 28pt;
+    }
     
 }
 
 @media only screen and (max-width: 870px) {
+    #menu_tab {
+        width: 100vw;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    #menu_list {
+        height: 22vh;
+    }
+
     #nav {
         width: 600px;
     }
-    
+
+    #job_title {
+        font-size: 24pt;
+    }
+
+    #job_about {
+        font-size: 12pt;
+        padding-right: 10px;
+    }
+
     #about_border1.active{
-        left: -35%;
+        left: -30%;
     }
 
     #about_border2.active{
-        right: -35%;
+        right: -30%;
     }
 
     @keyframes about_border1_anim {
@@ -957,13 +979,13 @@ footer p {
             left: -60%;
         }
         50% {
-            left: -35%;
+            left: -20%;
         }
         75% {
             left: -40%;
         }
         100% {
-            left: -35%;
+            left: -30%;
         }
     }
     
@@ -972,13 +994,13 @@ footer p {
             right: -60%;
         }
         50% {
-            right: -35%;
+            right: -20%;
         }
         75% {
             right: -40%;
         }
         100% {
-            right: -35%;
+            right: -30%;
         }
     }
 }
@@ -990,6 +1012,18 @@ footer p {
 }
 
 @media only screen and (max-width: 700px) {
+    #nav {
+        font-size: 14pt;
+    }
+
+    #menu_info {
+        flex-direction: column;
+    }
+
+    #menu_list {
+        height: 22vh;
+    }
+
     .bg{
         background-position: 30% 0%;
     }
@@ -1013,29 +1047,26 @@ footer p {
     #nav {
         width: 400px;
     }
-}
 
-
-@media only screen and (max-width: 520px) {
-    #tagline h2 {
-        width:100%;
+    #food_name {
+        font-size: 22pt;
     }
 
-    #tagline h1 {
-        width: 100%;
+    #job {
+        width: 90vw;
     }
 
     #about_border1.active{
-        left: -45%;
+        left: -40%;
     }
 
     #about_border2.active{
-        right: -45%;
+        right: -40%;
     }
 
     @keyframes about_border1_anim {
         0% {
-            left: -80%;
+            left: -60%;
         }
         50% {
             left: -30%;
@@ -1044,13 +1075,13 @@ footer p {
             left: -50%;
         }
         100% {
-            left: -45%;
+            left: -40%;
         }
     }
     
     @keyframes about_border2_anim {
         0% {
-            right: -80%;
+            right: -60%;
         }
         50% {
             right: -30%;
@@ -1059,23 +1090,188 @@ footer p {
             right: -50%;
         }
         100% {
-            right: -45%;
+            right: -40%;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px){
+    #job {
+        flex-direction: column;
+    }
+    
+    .job_img {
+        width: 100%;
+        height: 50%;
+    }
+    
+    .job_desc {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+    }
+    
+    #job_about{
+        height: 150px;
+        width: 80%;
+        padding-right: 40px;
+    }
+
+    #about_border1.active{
+        left: -50%;
+    }
+
+    #about_border2.active{
+        right: -50%;
+    }
+
+    @keyframes about_border1_anim {
+        0% {
+            left: -80%;
+        }
+        50% {
+            left: -50%;
+        }
+        75% {
+            left: -60%;
+        }
+        100% {
+            left: -50%;
+        }
+    }
+    
+    @keyframes about_border2_anim {
+        0% {
+            right: -80%;
+        }
+        50% {
+            right: -50%;
+        }
+        75% {
+            right: -60%;
+        }
+        100% {
+            right: -50%;
+        }
+    }
+}
+
+@media only screen and (max-width: 520px) {
+
+    #nav {
+        font-size: 12pt;
+        width: 80%;
+        gap: 10px;
+    }
+
+    #tagline h2 {
+        width:100%;
+    }
+
+    #tagline h1 {
+        width: 100%;
+    }
+
+    #job_about {
+        padding-right: 5px;
+        margin-left: -5%;
+    }
+
+    #about_border1.active{
+        left: -60%;
+    }
+
+    #about_border2.active{
+        right: -60%;
+    }
+
+    @keyframes about_border1_anim {
+        0% {
+            left: -80%;
+        }
+        50% {
+            left: -50%;
+        }
+        75% {
+            left: -70%;
+        }
+        100% {
+            left: -60%;
+        }
+    }
+    
+    @keyframes about_border2_anim {
+        0% {
+            right: -80%;
+        }
+        50% {
+            right: -50%;
+        }
+        75% {
+            right: -70%;
+        }
+        100% {
+            right: -60%;
         }
     }
 }
 
 @media only screen and (max-width: 546px) {
     #job_cont {
-        left: 6%;
+        left: -10%;
+    }
+    
+    #job_title {
+        font-size: 20pt;
+    }
+
+    #job_cont {
+        left: 2%;
+    }
+
+    #job_about {
+        padding-right: 10px;
+    }
+
+    #about_bg1 {
+        display: none;
+    }
+
+
+    #about_bg2 {
+        display: none;
     }
 }
 
 @media only screen and (max-width: 435px) {
+    #job_cont {
+        left: 2%;
+    }
+
+    #job_title {
+        font-size: 16pt;
+    }
+
+    #job_about {
+        font-size: 10pt;
+        margin-left: 4px;
+    }
+    
     #tagline h2 {
         font-size: 20pt;
     }
 
     #tagline h1 {
-        font-size: 48pt;
+        font-size: 42pt;
+    }
+
+    #about_border1{
+        display: none;
+    }
+    #about_border2{
+        display: none;
     }
 }
+

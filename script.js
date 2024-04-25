@@ -358,6 +358,13 @@ let job_descript = [{
                 }
             ]
 
+let job_mail = ['mailto:jake@jcoffee.com?subject=Application%20for%20Barista%20Team%20Member',
+                'mailto:jake@jcoffee.com?subject=Application%20for%20Culinary%20Team%20Member',
+                'mailto:jake@jcoffee.com?subject=Application%20for%20Front%20of%20the%20House%20Member',
+                'mailto:jake@jcoffee.com?subject=Application%20for%20Operations%20Team%20Member'
+]
+
+
 const job_cont = document.getElementById("job_cont");
 
 function appedQuali(){
@@ -399,7 +406,12 @@ function appedQuali(){
         job_desc.append(job_title);
         job.append(job_img);
         job.append(job_desc);
-        job_cont.append(job);
+        job.style.cursor ="pointer";
+        let a = document.createElement('a');
+        a.style.textDecoration = 'none';
+        a.setAttribute('href', job_mail[i]);
+        a.append(job);
+        job_cont.append(a);
     }
 }
 
