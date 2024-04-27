@@ -144,6 +144,14 @@ const pastry_dict = [
                             price : "3.99",
                             icon : "assets/menu_pastrylogo5.png", 
                             photo : "assets/menu_pastry5.jpg"
+                        },
+                        {
+                            dict : "pastry_dict",
+                            name : "Peachy's Carroty Cake",
+                            des : "\"Peachy\'s Carroty Cake\" is a delightful fusion of moist carrot layers, warm spices, and a creamy cream cheese frosting. Indulge in the perfect balance of sweetness and spice, crowned with a sprinkle of chopped nuts. A true classic with a Peachy twist!",
+                            price : "6.99",
+                            icon : "assets/menu_pastrylogo6.png", 
+                            photo : "assets/menu_pastry6.jpg"
                         }
 ];  
 
