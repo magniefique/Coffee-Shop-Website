@@ -267,7 +267,7 @@ function preload_image(dict) {
 menu_dict.forEach((el) => preload_image(el));
 
 function ScrollToView(div){
-    div.scrollIntoView({block:'start', behavior:'smooth'})
+    div.scrollIntoView({block:'start', inline: "start", behavior:'smooth'})
 }
 
 /* Music */

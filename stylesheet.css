@@ -858,6 +858,13 @@ footer p {
     }
 }
 
+@media only screen and (min-height: 1140px){
+    .bg {
+        background-size: cover;
+        
+    }
+}
+
 @media only screen and (max-width: 1435px) {
     #tagline h2 {
         font-size: 40pt;
@@ -865,6 +872,51 @@ footer p {
 
     #tagline h1 {
         font-size: 62pt;
+    }
+    #about_border1{
+        left: -60%;
+    }
+
+    #about_border2{
+        right: -60%;
+    }
+
+    #about_border1.active{
+        left: -20%;
+    }
+
+    #about_border2.active{
+        right: -20%;
+    }
+
+    @keyframes about_border1_anim {
+        0% {
+            left: -60%;
+        }
+        50% {
+            left: -30%;
+        }
+        75% {
+            left: -50%;
+        }
+        100% {
+            left: -20%;
+        }
+    }
+    
+    @keyframes about_border2_anim {
+        0% {
+            right: -60%;
+        }
+        50% {
+            right: -30%;
+        }
+        75% {
+            right: -50%;
+        }
+        100% {
+            right: -20%;
+        }
     }
 }
 
@@ -890,6 +942,7 @@ footer p {
     #about_border2.active{
         right: -20%;
     }
+    
 
     @keyframes about_border1_anim {
         0% {
@@ -923,6 +976,11 @@ footer p {
 }
 
 @media only screen and (max-width: 1110px) {
+    #page_about {
+        padding-top: 80px;
+        padding-bottom: 120px;
+    }
+    
     #about h1 {
         font-size: 32pt;
     }
@@ -940,6 +998,43 @@ footer p {
         font-size: 28pt;
     }
     
+    #about_border1.active{
+        left: -38%;
+    }
+
+    #about_border2.active{
+        right: -38%;
+    }
+
+    @keyframes about_border1_anim {
+        0% {
+            left: -60%;
+        }
+        50% {
+            left: -30%;
+        }
+        75% {
+            left: -40%;
+        }
+        100% {
+            left: -38%;
+        }
+    }
+    
+    @keyframes about_border2_anim {
+        0% {
+            right: -60%;
+        }
+        50% {
+            right: -30%;
+        }
+        75% {
+            right: -40%;
+        }
+        100% {
+            right: -38%;
+        }
+    }
 }
 
 @media only screen and (max-width: 870px) {
@@ -966,12 +1061,28 @@ footer p {
         padding-right: 10px;
     }
 
+    #about_border1{
+        left: -60%;
+    }
+
+    #about_border2{
+        right: -60%;
+    }
+
+    #about_border1{
+        left: -60%;
+    }
+
+    #about_border2{
+        right: -60%;
+    }
+
     #about_border1.active{
-        left: -30%;
+        left: -40%;
     }
 
     #about_border2.active{
-        right: -30%;
+        right: -40%;
     }
 
     @keyframes about_border1_anim {
@@ -979,13 +1090,13 @@ footer p {
             left: -60%;
         }
         50% {
-            left: -20%;
+            left: -30%;
         }
         75% {
-            left: -40%;
+            left: -50%;
         }
         100% {
-            left: -30%;
+            left: -40%;
         }
     }
     
@@ -994,13 +1105,13 @@ footer p {
             right: -60%;
         }
         50% {
-            right: -20%;
+            right: -30%;
         }
         75% {
-            right: -40%;
+            right: -50%;
         }
         100% {
-            right: -30%;
+            right: -40%;
         }
     }
 }
@@ -1056,43 +1167,6 @@ footer p {
         width: 90vw;
     }
 
-    #about_border1.active{
-        left: -40%;
-    }
-
-    #about_border2.active{
-        right: -40%;
-    }
-
-    @keyframes about_border1_anim {
-        0% {
-            left: -60%;
-        }
-        50% {
-            left: -30%;
-        }
-        75% {
-            left: -50%;
-        }
-        100% {
-            left: -40%;
-        }
-    }
-    
-    @keyframes about_border2_anim {
-        0% {
-            right: -60%;
-        }
-        50% {
-            right: -30%;
-        }
-        75% {
-            right: -50%;
-        }
-        100% {
-            right: -40%;
-        }
-    }
 }
 
 @media only screen and (max-width: 600px){
@@ -1118,6 +1192,15 @@ footer p {
         width: 80%;
         padding-right: 40px;
     }
+
+    #about_border1{
+        left: -80%;
+    }
+
+    #about_border2{
+        right: -80%;
+    }
+
 
     #about_border1.active{
         left: -50%;
@@ -1180,11 +1263,11 @@ footer p {
     }
 
     #about_border1.active{
-        left: -60%;
+        left: -55%;
     }
 
     #about_border2.active{
-        right: -60%;
+        right: -55%;
     }
 
     @keyframes about_border1_anim {
@@ -1198,7 +1281,7 @@ footer p {
             left: -70%;
         }
         100% {
-            left: -60%;
+            left: -55%;
         }
     }
     
@@ -1213,7 +1296,7 @@ footer p {
             right: -70%;
         }
         100% {
-            right: -60%;
+            right: -55%;
         }
     }
 }
@@ -1228,7 +1311,7 @@ footer p {
     }
 
     #job_cont {
-        left: 2%;
+        left: -1.25%;
     }
 
     #job_about {
