@@ -30,19 +30,6 @@ const about_border2 = document.getElementById("about_border2");
 const about_bg1 = document.getElementById("about_bg1");
 const about_bg2 = document.getElementById("about_bg2");
 
-const about_ob = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        about_border1.classList.toggle('active', entry.isIntersecting);
-        about_border2.classList.toggle('active', entry.isIntersecting);
-        about_bg1.classList.toggle('active', entry.isIntersecting);
-        about_bg2.classList.toggle('active', entry.isIntersecting);
-    });
-}, {
-    threshold: 0.6
-});
-
-page_about.forEach((el) => about_ob.observe(el));
-
 /* Menu */
 
 const bev_dict = [
